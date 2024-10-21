@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+       
+
+.profile-container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #007BFF;
+}
+
+.profile-name {
+    font-size: 24px;
+    margin: 10px 0 5px;
+}
+
+.profile-bio {
+    color: #666;
+}
+
+.profile-info {
+    border-top: 1px solid #e1e1e1;
+    padding-top: 20px;
+}
+
+.profile-info h2 {
+    margin-top: 0;
+}
+
+.profile-info p {
+    margin: 5px 0;
+}
+
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <div class="profile-header">
+            <img src="/{{request.user.profile_pic}}" alt="Profile Picture" class="profile-pic" height="50px" width="100px">
+            <h1 class="profile-name">John Doe</h1>
+            <p class="profile-bio">Web developer with a passion for creating dynamic and user-friendly websites.</p>
+        </div>
+        <div class="profile-info">
+            <h2>Contact Information</h2>
+            <p><strong>User_Type:</strong>{{request.user.user_type}}</p>
+            <p><strong>UserName:</strong> {{request.user.username}}</p>
+            <p><strong>Email:</strong> {{request.user.email}}</p>
+            <p><strong>Age:</strong>{{request.user.Age}}</p>
+            <p><strong>Gender:</strong>{{request.user.Gender}}</p>
+            <p><strong>Contact_No:</strong>{{request.user.Contact_No}}</p>
+
+
+            <div class="button-container">
+                <button class="edit-button">Edit Profile</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+{% endblock body %}
